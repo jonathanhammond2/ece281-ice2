@@ -9,6 +9,13 @@
 --| USAF Academy, CO 80840           \____//____/_/  |_/_/   /_/  |_|
 --| 
 --| ---------------------------------------------------------------------------
+--| FILENAME      : halfAdder.vhd
+--| AUTHOR(S)     : Capt Warner
+--| CREATED       : 01/17/2017
+--| DESCRIPTION   : This file implements a one bit half adder.
+--|
+--| DOCUMENTATION : USAFA ECE github
+--|----------------------------------------------------------------------------
 --|
 --| DESCRIPTION   : This file implements a one bit half adder.
 --|
@@ -29,6 +36,7 @@ entity halfAdder is
   port(
 	i_A     : in  std_logic; -- 1-bit input port
 	i_B     : in  std_logic; 
+	o_C     : out std_logic;
 	o_S     : out std_logic  -- 1-bit output port (NOTE: NO semicolon on LAST port only!)	    
 	-- TODO:  Carry port
   ); -- the semicolon is here instead
@@ -41,7 +49,8 @@ begin
 	-- this is where you would map ports for any component instantiations, but we don't need them for this
 
 	-- *concurrent* signal assignments
-	o_S    <= i_A xor i_B;
+	o_S   <= i_A xor i_B;
 	-- TODO:  Carry signal assignment
+	o_C   <= i_A and i_B;
 	
 end halfAdder_arch;
